@@ -1,0 +1,1672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GLORY WELLNESS HEALTH CENTRE</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gold: #D4AF37;
+            --light-gold: #F1E5AC;
+            --primary-purple: #6A0DAD;
+            --light-purple: #E6E6FA;
+            --dark-text: #333333;
+            --light-text: #f8f9fa;
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Scroll Progress Bar */
+        .scroll-progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-purple), #8A2BE2);
+            z-index: 9999;
+            transition: width 0.1s ease-out;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: var(--transition);
+            padding: 1rem 0;
+        }
+
+        .navbar.scrolled {
+            padding: 0.5rem 0;
+            background: rgba(255, 255, 255, 0.98);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--primary-purple);
+            text-decoration: none;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--dark-text);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary-purple);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-gold);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .btn-gold {
+            background: var(--primary-gold);
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .btn-gold:hover {
+            background: #c19b2e;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-navbar {
+            border-radius: 12px;
+            padding: 0.5rem 1.25rem;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(212, 175, 55, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .btn-navbar:hover {
+            background: #b38f1f;
+            box-shadow: 0 6px 15px rgba(212, 175, 55, 0.6);
+            transform: translateY(-2px);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary-purple);
+            transition: var(--transition);
+        }
+
+        /* Hero Section */
+        .hero-container {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .hero-slide.active {
+            opacity: 1;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.7);
+        }
+
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.5s forwards;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.8s forwards;
+        }
+
+        .hero-cta {
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 1.1s forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-indicators {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 1rem;
+            z-index: 3;
+        }
+
+        .hero-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .hero-indicator.active {
+            background: var(--primary-gold);
+            transform: scale(1.2);
+        }
+
+        /* Main Content */
+        .main-content {
+            position: relative;
+            background: white;
+            z-index: 10;
+            margin-top: 100vh;
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--primary-purple);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Marquee */
+        .marquee-container {
+            background: var(--light-purple);
+            padding: 1rem 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .marquee-text {
+            font-size: 1.1rem;
+            color: var(--primary-purple);
+            white-space: nowrap;
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 25s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-100%, 0); }
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-image {
+            transform: scale(1.05);
+        }
+
+        .service-content {
+            padding: 2rem;
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-purple);
+        }
+
+        .service-description {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .service-features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+            color: #555;
+        }
+
+        /* Gallery Section */
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .gallery-item:nth-child(1) { grid-row: span 2; }
+        .gallery-item:nth-child(4) { grid-row: span 2; }
+        .gallery-item:nth-child(7) { grid-row: span 2; }
+
+        .gallery-image {
+            width: 100%;
+            height: 100%;
+            min-height: 250px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-item:hover .gallery-image {
+            transform: scale(1.1);
+            filter: brightness(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(106, 13, 173, 0.8), rgba(212, 175, 55, 0.8));
+            opacity: 0;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay-content {
+            text-align: center;
+            color: white;
+            transform: translateY(20px);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-overlay-content {
+            transform: translateY(0);
+        }
+
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .team-member {
+            text-align: center;
+            position: relative;
+        }
+
+        .team-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--primary-gold);
+            margin: 0 auto 1.5rem;
+            transition: var(--transition);
+        }
+
+        .team-member:hover .team-image {
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.3);
+        }
+
+        .team-name {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-purple);
+        }
+
+        .team-role {
+            color: var(--primary-gold);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .team-description {
+            color: #666;
+        }
+
+        /* Pricing Grid */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            background: white;
+            border: 2px solid var(--light-purple);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card:hover {
+            border-color: var(--primary-purple);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(106, 13, 173, 0.1);
+        }
+
+        .pricing-card.featured {
+            border-color: var(--primary-gold);
+            position: relative;
+        }
+
+        .pricing-card.featured::before {
+            content: "POPULAR";
+            position: absolute;
+            top: 15px;
+            right: -30px;
+            background: var(--primary-gold);
+            color: white;
+            padding: 5px 30px;
+            transform: rotate(45deg);
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .pricing-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-purple);
+        }
+
+        .pricing-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-purple);
+            margin-bottom: 1rem;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features li {
+            padding: 0.5rem 0;
+            color: #666;
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: var(--light-purple);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(106, 13, 173, 0.1);
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary-gold);
+            margin-right: 1rem;
+        }
+
+        .testimonial-name {
+            font-weight: 600;
+            color: var(--primary-purple);
+        }
+
+        .testimonial-role {
+            color: var(--primary-gold);
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .contact-info {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+        }
+
+        .contact-icon {
+            color: var(--primary-purple);
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            margin-top: 0.25rem;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--primary-purple);
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #eee;
+            border-radius: 10px;
+            font-family: inherit;
+            transition: var(--transition);
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--primary-purple);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary-purple);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: var(--primary-gold);
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-gold);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-icon:hover {
+            background: var(--primary-gold);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1rem;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: var(--transition);
+            }
+
+            .nav-menu.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .services-grid,
+            .gallery-container,
+            .team-grid,
+            .pricing-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.6s ease-out;
+        }
+
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.6s ease-out;
+        }
+
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress-bar"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="navbar-brand">
+                <i class="fas fa-spa" style="color: var(--primary-gold); margin-right: 0.5rem;"></i>
+                GLORY WELLNESS HEALTH CENTRE
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#pricing" class="nav-link">Pricing</a></li>
+                <li><a href="#team" class="nav-link">Therapists</a></li>
+                <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#booking" class="btn-gold btn-navbar">Book Now</a></li>
+            </ul>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Marquee -->
+    <div class="marquee-container">
+        <div class="marquee-text">
+            <i class="fas fa-star" style="color: var(--primary-gold); margin-right: 0.5rem;"></i> Grand Opening Special: 20% Off All Massages This Month! 
+            <i class="fas fa-gift" style="color: var(--primary-gold); margin: 0 1rem;"></i> Gift Cards Available - Perfect Present for Loved Ones! 
+            <i class="fas fa-calendar-check" style="color: var(--primary-gold); margin: 0 1rem;"></i> Now Accepting Online Bookings - Schedule Your Relaxation Today!
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero-container">
+        <div class="hero-slide active">
+            <img src="images/hero-carousel-1.webp" alt="Massage Therapy" class="hero-image">
+            <div class="hero-content">
+                <h1 class="hero-title">Experience Ultimate Relaxation</h1>
+                <p class="hero-subtitle">Our expert therapists provide personalized massage treatments to rejuvenate your body and mind.</p>
+                <div class="hero-cta">
+                    <a href="#booking" class="btn-gold">Book Your Session</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-slide">
+            <img src="images/WhatsApp Image 2025-09-09 at 4.31.57 PM.jpeg" alt="Spa Interior" class="hero-image" style="object-position: center 30%;">
+            <div class="hero-content">
+                <h1 class="hero-title">Luxury Wellness Centre</h1>
+                <p class="hero-subtitle">Immerse yourself in our serene environment designed for complete relaxation and healing.</p>
+                <div class="hero-cta">
+                    <a href="#services" class="btn-gold">Explore Services</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-slide">
+            <img src="images/WhatsApp Image 2025-09-09 at 4.31.57 PM(1).jpeg" alt="Gift Cards" class="hero-image" style="object-position: center 30%;">
+            <div class="hero-content">
+                <h1 class="hero-title">Gift the Joy of Wellness</h1>
+                <p class="hero-subtitle">Share the gift of relaxation with our specially designed gift cards for your loved ones.</p>
+                <div class="hero-cta">
+                    <a href="#contact" class="btn-gold">Purchase Gift Card</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="hero-indicators">
+            <div class="hero-indicator active"></div>
+            <div class="hero-indicator"></div>
+            <div class="hero-indicator"></div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="container">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
+                    <div class="fade-in">
+                        <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--primary-purple);">Welcome to Glory Wellness Health Centre</h2>
+                        <p style="font-size: 1.2rem; margin-bottom: 1.5rem; color: #666;">Where healing hands meet compassionate hearts to restore your balance and vitality.</p>
+                        <p style="margin-bottom: 2rem;">At Glory Wellness, we believe in the power of touch to transform your well-being. Our team of certified therapists provides personalized treatments tailored to your specific needs, ensuring you leave feeling refreshed, renewed, and restored.</p>
+                        <div style="display: flex; gap: 1rem;">
+                            <a href="#services" class="btn-gold">Learn More</a>
+                            <a href="#contact" style="padding: 0.75rem 1.5rem; border: 2px solid var(--primary-gold); color: var(--primary-gold); text-decoration: none; border-radius: 50px; transition: var(--transition);">Contact Us</a>
+                        </div>
+                    </div>
+                    <div class="slide-in-right">
+                        <img src="images/we.jpeg" alt="Massage Therapy" style="width: 100%; border-radius: 20px; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);">
+                    </div>
+                </div>
+                
+                <div style="margin-top: 4rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem;">
+                    <div class="slide-in-left">
+                        <h3 style="font-size: 1.8rem; margin-bottom: 1rem; color: var(--primary-purple);">Our Mission</h3>
+                        <p style="font-style: italic; color: #666;">"To provide exceptional massage therapy and holistic wellness services, fostering relaxation, rejuvenation, and overall well-being in a serene and supportive environment."</p>
+                    </div>
+                    <div class="slide-in-right">
+                        <h3 style="font-size: 1.8rem; margin-bottom: 1rem; color: var(--primary-purple);">Our Vision</h3>
+                        <p style="font-style: italic; color: #666;">"To be the leading massage and wellness clinic in Cape Coast and globally, renowned for our expertise, compassion, and dedication to empowering individuals to achieve optimal health and vitality."</p>
+                    </div>
+                    <div class="fade-in">
+                        <h3 style="font-size: 1.8rem; margin-bottom: 1rem; color: var(--primary-purple);">Why Choose Us?</h3>
+                        <ul style="list-style: none; color: #666;">
+                            <li style="margin-bottom: 0.5rem;"><i class="fas fa-check" style="color: var(--primary-gold); margin-right: 0.5rem;"></i>Certified and experienced therapists</li>
+                            <li style="margin-bottom: 0.5rem;"><i class="fas fa-check" style="color: var(--primary-gold); margin-right: 0.5rem;"></i>Personalized treatment plans</li>
+                            <li style="margin-bottom: 0.5rem;"><i class="fas fa-check" style="color: var(--primary-gold); margin-right: 0.5rem;"></i>Serene and relaxing environment</li>
+                            <li style="margin-bottom: 0.5rem;"><i class="fas fa-check" style="color: var(--primary-gold); margin-right: 0.5rem;"></i>Affordable pricing with premium quality</li>
+                            <li style="margin-bottom: 0.5rem;"><i class="fas fa-check" style="color: var(--primary-gold); margin-right: 0.5rem;"></i>Open 24/7 (except Wednesdays)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="section" style="background: #f8f9fa;">
+            <div class="container">
+                <h2 class="section-title fade-in">Our Services</h2>
+                <p class="section-subtitle fade-in">Experience a variety of massage therapies designed to meet your wellness needs</p>
+                
+                <div class="services-grid">
+                    <div class="service-card fade-in">
+                        <img src="images/work.jpeg" alt="Swedish Massage" class="service-image">
+                        <div class="service-content">
+                            <h3 class="service-title">Swedish Massage</h3>
+                            <p class="service-description">A gentle form of massage that uses long strokes, kneading, and circular movements to help you relax and energize.</p>
+                            <ul class="service-features">
+                                <li>Duration: 45/60 minutes</li>
+                                <li>Benefits: Relaxation, improved circulation</li>
+                                <li>Price: ₵450 (45min) / ₵500 (60min)</li>
+                            </ul>
+                            <a href="#booking" class="btn-gold">Book Now</a>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card fade-in">
+                        <img src="images/deep.png" alt="Deep Tissue Massage" class="service-image">
+                        <div class="service-content">
+                            <h3 class="service-title">Deep Tissue Massage</h3>
+                            <p class="service-description">Targets the deeper layers of muscle and connective tissue to relieve chronic patterns of tension.</p>
+                            <ul class="service-features">
+                                <li>Duration: 45/60 minutes</li>
+                                <li>Benefits: Pain relief, muscle tension release</li>
+                                <li>Price: ₵500 (45min) / ₵600 (60min)</li>
+                            </ul>
+                            <a href="#booking" class="btn-gold">Book Now</a>
+                        </div>
+                    </div>
+
+                    <div class="service-card fade-in">
+                        <img src="images/hollistic.png" alt="Holistic Massage" class="service-image">
+                        <div class="service-content">
+                            <h3 class="service-title">Holistic Massage</h3>
+                            <p class="service-description">Uses heated stones to enhance relaxation and loosen tight muscles for a deeply soothing experience.</p>
+                            <ul class="service-features">
+                                <li>Duration: 45/60 minutes</li>
+                                <li>Benefits: Deep relaxation, muscle tension relief</li>
+                                <li>Price: ₵450 (45min) / ₵550 (60min)</li>
+                            </ul>
+                            <a href="#booking" class="btn-gold">Book Now</a>
+                        </div>
+                    </div>
+
+                    <div class="service-card fade-in">
+                        <img src="images/couples.png" alt="Couples Massage" class="service-image">
+                        <div class="service-content">
+                            <h3 class="service-title">Couples Massage</h3>
+                            <p class="service-description">Enjoy side-by-side massages with your partner in a private room for a shared relaxing experience.</p>
+                            <ul class="service-features">
+                                <li>Duration: 90 minutes</li>
+                                <li>Benefits: Shared experience, relaxation</li>
+                                <li>Price: ₵1100</li>
+                            </ul>
+                            <a href="#booking" class="btn-gold">Book Now</a>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card fade-in">
+                        <img src="images/reflex.png" alt="Reflexology" class="service-image">
+                        <div class="service-content">
+                            <h3 class="service-title">Reflexology</h3>
+                            <p class="service-description">Experience the healing power of reflexology. This ancient therapy applies pressure to specific points on your feet.</p>
+                            <ul class="service-features">
+                                <li>Duration: 30 minutes</li>
+                                <li>Benefits: Stress relief, improved circulation</li>
+                                <li>Price: Contact for pricing</li>
+                            </ul>
+                            <a href="#booking" class="btn-gold">Book Now</a>
+                        </div>
+                    </div>
+
+                    <div class="service-card fade-in">
+                        <img src="images/pedicure.png" alt="Pedicure & Manicure" class="service-image">
+                        <div class="service-content">
+                            <h3 class="service-title">Pedicure & Manicure</h3>
+                            <p class="service-description">Pamper your hands and feet with our professional nail care services including exfoliation and moisturizing.</p>
+                            <ul class="service-features">
+                                <li>Duration: 60 minutes each</li>
+                                <li>Benefits: Nail care, hand & foot treatment</li>
+                                <li>Price: ₵270 each</li>
+                            </ul>
+                            <a href="#booking" class="btn-gold">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="section">
+            <div class="container">
+                <h2 class="section-title fade-in">Our Wellness Environment</h2>
+                <p class="section-subtitle fade-in">Step into our serene space designed for your relaxation and rejuvenation</p>
+                
+                <div class="gallery-container">
+                    <div class="gallery-item fade-in">
+                        <img src="images/WhatsApp Image 2025-09-09 at 4.31.58 PM(1).jpeg" alt="Treatment Room" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <div class="gallery-overlay-content">
+                                <h3>Treatment Room</h3>
+                                <p>Serene spaces for healing</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="images/WhatsApp Image 2025-09-09 at 4.31.58 PM(2).jpeg" alt="Spa Interior" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <div class="gallery-overlay-content">
+                                <h3>Spa Interior</h3>
+                                <p>Luxurious ambiance</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="images/WhatsApp Image 2025-09-09 at 4.31.58 PM(3).jpeg" alt="Relaxation Area" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <div class="gallery-overlay-content">
+                                <h3>Relaxation Area</h3>
+                                <p>Peaceful environment</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="images/WhatsApp Image 2025-09-09 at 6.00.25 PM.jpeg" alt="Professional Service" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <div class="gallery-overlay-content">
+                                <h3>Professional Service</h3>
+                                <p>Expert care</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="images/WhatsApp Image 2025-09-09 at 6.00.28 PM.jpeg" alt="Wellness Space" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <div class="gallery-overlay-content">
+                                <h3>Wellness Space</h3>
+                                <p>Holistic healing</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="images/WhatsApp Image 2025-09-09 at 6.00.28 PM(1).jpeg" alt="Therapy Room" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <div class="gallery-overlay-content">
+                                <h3>Therapy Room</h3>
+                                <p>Tranquil setting</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section id="team" class="section" style="background: #f8f9fa;">
+            <div class="container">
+                <h2 class="section-title fade-in">Meet Our Therapists</h2>
+                <p class="section-subtitle fade-in">Our certified massage therapists are dedicated to your wellness journey</p>
+                
+                <div class="team-grid">
+                    <div class="team-member fade-in">
+                        <img src="images/him.jpeg" alt="Mr Moses" class="team-image">
+                        <h3 class="team-name">Mr Moses</h3>
+                        <p class="team-role">Lead Massage Therapist</p>
+                        <p class="team-description">Specializing in deep tissue and sports massage with over 10 years of experience. Certified in myofascial release techniques.</p>
+                    </div>
+
+                    <div class="team-member fade-in">
+                        <img src="images/act.jpeg" alt="Kwame Adjei" class="team-image">
+                        <h3 class="team-name">Kwame Adjei</h3>
+                        <p class="team-role">Aromatherapy Specialist</p>
+                        <p class="team-description">With 8 years of experience, Kwame combines his knowledge of essential oils with massage for a holistic healing experience.</p>
+                    </div>
+
+                    <div class="team-member fade-in">
+                        <img src="images/her.jpeg" alt="Esi Boateng" class="team-image">
+                        <h3 class="team-name">Esi Boateng</h3>
+                        <p class="team-role">Reflexology Expert</p>
+                        <p class="team-description">Esi is certified in reflexology and Asian bodywork with 7 years of experience helping clients find balance through foot therapy.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="section">
+            <div class="container">
+                <h2 class="section-title fade-in">Service Pricing</h2>
+                <p class="section-subtitle fade-in">Invest in your well-being with our affordable massage therapy options</p>
+                
+                <div class="pricing-grid">
+                    <div class="pricing-card fade-in">
+                        <h3 class="pricing-title">Swedish Massage</h3>
+                        <div class="pricing-price">₵450</div>
+                        <p style="margin-bottom: 1rem;">45 min / ₵500 for 60 min</p>
+                        <ul class="pricing-features">
+                            <li>Relaxing and gentle</li>
+                            <li>Improved circulation</li>
+                            <li>Stress reduction</li>
+                            <li>Perfect for beginners</li>
+                        </ul>
+                        <a href="#booking" class="btn-gold">Book Now</a>
+                    </div>
+                    
+                    <div class="pricing-card featured fade-in">
+                        <h3 class="pricing-title">Deep Tissue Massage</h3>
+                        <div class="pricing-price">₵500</div>
+                        <p style="margin-bottom: 1rem;">45 min / ₵600 for 60 min</p>
+                        <ul class="pricing-features">
+                            <li>Targets deep muscles</li>
+                            <li>Chronic pain relief</li>
+                            <li>Releases muscle tension</li>
+                            <li>Sports injury recovery</li>
+                        </ul>
+                        <a href="#booking" class="btn-gold">Book Now</a>
+                    </div>
+                    
+                    <div class="pricing-card fade-in">
+                        <h3 class="pricing-title">Holistic Massage</h3>
+                        <div class="pricing-price">₵450</div>
+                        <p style="margin-bottom: 1rem;">45 min / ₵550 for 60 min</p>
+                        <ul class="pricing-features">
+                            <li>Deep relaxation</li>
+                            <li>Heated stones therapy</li>
+                            <li>Muscle tension relief</li>
+                            <li>Mind-body connection</li>
+                        </ul>
+                        <a href="#booking" class="btn-gold">Book Now</a>
+                    </div>
+                    
+                    <div class="pricing-card fade-in">
+                        <h3 class="pricing-title">Couples Massage</h3>
+                        <div class="pricing-price">₵1100</div>
+                        <p style="margin-bottom: 1rem;">90 minutes</p>
+                        <ul class="pricing-features">
+                            <li>Private room</li>
+                            <li>Side-by-side massage</li>
+                            <li>Shared experience</li>
+                            <li>Perfect for couples</li>
+                        </ul>
+                        <a href="#booking" class="btn-gold">Book Now</a>
+                    </div>
+
+                    <div class="pricing-card fade-in">
+                        <h3 class="pricing-title">Pedicure</h3>
+                        <div class="pricing-price">₵270</div>
+                        <p style="margin-bottom: 1rem;">60 minutes</p>
+                        <ul class="pricing-features">
+                            <li>Nail care and shaping</li>
+                            <li>Foot exfoliation</li>
+                            <li>Moisturizing treatment</li>
+                            <li>Relaxing foot soak</li>
+                        </ul>
+                        <a href="#booking" class="btn-gold">Book Now</a>
+                    </div>
+
+                    <div class="pricing-card fade-in">
+                        <h3 class="pricing-title">Manicure</h3>
+                        <div class="pricing-price">₵270</div>
+                        <p style="margin-bottom: 1rem;">60 minutes</p>
+                        <ul class="pricing-features">
+                            <li>Nail shaping and filing</li>
+                            <li>Cuticle care</li>
+                            <li>Hand massage</li>
+                            <li>Polish application</li>
+                        </ul>
+                        <a href="#booking" class="btn-gold">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="section" style="background: #f8f9fa;">
+            <div class="container">
+                <h2 class="section-title fade-in">Client Testimonials</h2>
+                <p class="section-subtitle fade-in">Hear what our clients have to say about their experience</p>
+                
+                <div class="testimonials-grid">
+                    <div class="testimonial-card fade-in">
+                        <div class="testimonial-header">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Abena Owusu" class="testimonial-image">
+                            <div>
+                                <div class="testimonial-name">Abena Owusu</div>
+                                <div class="testimonial-role">Regular Client</div>
+                            </div>
+                        </div>
+                        <p>"I've been coming to Glory Wellness for over a year now. The deep tissue massage has done wonders for my chronic back pain. The therapists are truly skilled and professional."</p>
+                    </div>
+                    
+                    <div class="testimonial-card fade-in">
+                        <div class="testimonial-header">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Kofi Ansah" class="testimonial-image">
+                            <div>
+                                <div class="testimonial-name">Kofi Ansah</div>
+                                <div class="testimonial-role">First-time Visitor</div>
+                            </div>
+                        </div>
+                        <p>"I received a gift certificate for a couples massage and it was incredible! The atmosphere was so relaxing, and the staff made us feel completely comfortable. We'll definitely be back."</p>
+                    </div>
+                    
+                    <div class="testimonial-card fade-in">
+                        <div class="testimonial-header">
+                            <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Adwoa Nyarko" class="testimonial-image">
+                            <div>
+                                <div class="testimonial-name">Adwoa Nyarko</div>
+                                <div class="testimonial-role">Corporate Client</div>
+                            </div>
+                        </div>
+                        <p>"As someone who spends long hours at a desk, I frequently experience neck and shoulder tension. The holistic massage at Glory Wellness has become my monthly treat to unwind and reset."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Booking Section -->
+        <section id="booking" class="section" style="background: var(--primary-purple); color: white;">
+            <div class="container">
+                <h2 class="section-title fade-in" style="color: white;">Book Your Session</h2>
+                <p class="section-subtitle fade-in" style="color: rgba(255, 255, 255, 0.8);">Ready to experience the healing power of massage? Book your appointment today</p>
+                
+                <div style="max-width: 800px; margin: 0 auto;">
+                    <div style="background: var(--light-purple); border-radius: 20px; padding: 3rem; color: var(--dark-text);">
+                        <form id="bookingForm">
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+                                <div class="form-group">
+                                    <label for="name" class="form-label">Full Name</label>
+                                    <input type="text" class="form-input" id="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone" class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-input" id="phone" required>
+                                </div>
+                            </div>
+                            
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+                                <div class="form-group">
+                                    <label for="service" class="form-label">Select Service</label>
+                                    <select class="form-select" id="service" required>
+                                        <option value="">Choose a service...</option>
+                                        <option value="Swedish Massage">Swedish Massage</option>
+                                        <option value="Deep Tissue Massage">Deep Tissue Massage</option>
+                                        <option value="Holistic Massage">Holistic Massage</option>
+                                        <option value="Reflexology">Reflexology</option>
+                                        <option value="Couples Massage">Couples Massage</option>
+                                        <option value="Pedicure">Pedicure</option>
+                                        <option value="Manicure">Manicure</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="duration" class="form-label">Duration</label>
+                                    <select class="form-select" id="duration" required>
+                                        <option value="">Select duration...</option>
+                                        <option value="30 minutes">30 minutes</option>
+                                        <option value="45 minutes">45 minutes</option>
+                                        <option value="60 minutes">60 minutes</option>
+                                        <option value="90 minutes">90 minutes</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+                                <div class="form-group">
+                                    <label for="date" class="form-label">Preferred Date</label>
+                                    <input type="date" class="form-input" id="date" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="time" class="form-label">Preferred Time</label>
+                                    <select class="form-select" id="time" required>
+                                        <option value="">Select time...</option>
+                                        <option value="9:00 AM">9:00 AM</option>
+                                        <option value="10:00 AM">10:00 AM</option>
+                                        <option value="11:00 AM">11:00 AM</option>
+                                        <option value="12:00 PM">12:00 PM</option>
+                                        <option value="1:00 PM">1:00 PM</option>
+                                        <option value="2:00 PM">2:00 PM</option>
+                                        <option value="3:00 PM">3:00 PM</option>
+                                        <option value="4:00 PM">4:00 PM</option>
+                                        <option value="5:00 PM">5:00 PM</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="notes" class="form-label">Special Requests or Notes</label>
+                                <textarea class="form-textarea" id="notes" rows="3" placeholder="Any specific areas of concern, allergies, or special requests..."></textarea>
+                            </div>
+                            
+                            <div style="text-align: center;">
+                                <button type="button" class="btn-gold" onclick="redirectToWhatsApp()" style="font-size: 1.1rem; padding: 1rem 2rem;">
+                                    <i class="fab fa-whatsapp" style="margin-right: 0.5rem;"></i> Continue Booking on WhatsApp
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section" style="background: #f8f9fa;">
+            <div class="container">
+                <h2 class="section-title fade-in">Contact Us</h2>
+                <p class="section-subtitle fade-in">Get in touch with us for any questions or to book your appointment</p>
+                
+                <div class="contact-grid">
+                    <div class="contact-info fade-in">
+                        <h3 style="margin-bottom: 2rem; color: var(--primary-purple);">Visit Our Centre</h3>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt contact-icon"></i>
+                            <div>
+                                <h4>Address</h4>
+                                <p>Cape Coast, Central Region, Ghana</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-phone contact-icon"></i>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>+233 55 248 6518</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-envelope contact-icon"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p>glorywellnesshealthcentre@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-clock contact-icon"></i>
+                            <div>
+                                <h4>Business Hours</h4>
+                                <p>Open 24 hours every day except Wednesday</p>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 2rem;">
+                            <h4 style="margin-bottom: 1rem;">Follow Us</h4>
+                            <div class="social-icons">
+                                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form fade-in">
+                        <h3 style="margin-bottom: 2rem; color: var(--primary-purple);">Send Us a Message</h3>
+                        <form>
+                            <div class="form-group">
+                                <label for="contactName" class="form-label">Your Name</label>
+                                <input type="text" class="form-input" id="contactName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactEmail" class="form-label">Email Address</label>
+                                <input type="email" class="form-input" id="contactEmail" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactPhone" class="form-label">Phone Number</label>
+                                <input type="tel" class="form-input" id="contactPhone">
+                            </div>
+                            <div class="form-group">
+                                <label for="contactMessage" class="form-label">Message</label>
+                                <textarea class="form-textarea" id="contactMessage" rows="4" required placeholder="Tell us how we can help you..."></textarea>
+                            </div>
+                            <button type="submit" class="btn-gold">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-section">
+                        <h4>GLORY WELLNESS HEALTH CENTRE</h4>
+                        <p>Providing exceptional massage therapy and holistic wellness services in a serene and supportive environment.</p>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4>Quick Links</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#services">Services</a></li>
+                            <li><a href="#pricing">Pricing</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4>Services</h4>
+                        <ul class="footer-links">
+                            <li><a href="#services">Swedish Massage</a></li>
+                            <li><a href="#services">Deep Tissue Massage</a></li>
+                            <li><a href="#services">Holistic Massage</a></li>
+                            <li><a href="#services">Couples Massage</a></li>
+                            <li><a href="#services">Reflexology</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4>Contact Info</h4>
+                        <p><i class="fas fa-map-marker-alt" style="color: var(--primary-gold); margin-right: 0.5rem;"></i>Cape Coast, Central Region, Ghana</p>
+                        <p><i class="fas fa-phone" style="color: var(--primary-gold); margin-right: 0.5rem;"></i>+233 55 248 6518</p>
+                        <p><i class="fas fa-envelope" style="color: var(--primary-gold); margin-right: 0.5rem;"></i>glorywellnesshealthcentre@gmail.com</p>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <p>&copy; 2023 Glory Wellness Health Centre. All rights reserved.</p>
+                    <p>Designed with <i class="fas fa-heart" style="color: #e74c3c;"></i> for your wellness</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Hero Carousel
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.hero-slide');
+        const indicators = document.querySelectorAll('.hero-indicator');
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            slides[currentSlide].classList.remove('active');
+            indicators[currentSlide].classList.remove('active');
+            
+            currentSlide = index;
+            
+            slides[currentSlide].classList.add('active');
+            indicators[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            const nextIndex = (currentSlide + 1) % totalSlides;
+            showSlide(nextIndex);
+        }
+
+        // Auto-advance slides every 5 seconds
+        setInterval(nextSlide, 5000);
+
+        // Indicator click handlers
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                if (index !== currentSlide) {
+                    showSlide(index);
+                }
+            });
+        });
+
+        // Mobile Menu Toggle
+        const mobileToggle = document.querySelector('.mobile-menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        mobileToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Navbar Scroll Effect
+        const navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll Progress Bar
+        function updateScrollProgress() {
+            const progressBar = document.querySelector('.scroll-progress-bar');
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / documentHeight) * 100;
+            progressBar.style.width = scrollPercent + '%';
+        }
+
+        window.addEventListener('scroll', updateScrollProgress);
+
+        // Active Navigation Link
+        function updateActiveNavLink() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const scrollY = window.pageYOffset;
+            const navbar = document.querySelector('.navbar');
+            const navbarHeight = navbar.offsetHeight;
+
+            if (scrollY < navbarHeight + 50) {
+                navLinks.forEach(link => link.classList.remove('active'));
+                document.querySelector('.nav-link[href="#"]').classList.add('active');
+                return;
+            }
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - navbarHeight - 50;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.id;
+
+                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    const correspondingLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
+                    if (correspondingLink) {
+                        correspondingLink.classList.add('active');
+                    }
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveNavLink);
+
+        // Scroll Animations
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        function handleScrollAnimations() {
+            const animatedElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right');
+            
+            animatedElements.forEach(element => {
+                if (isElementInViewport(element)) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', handleScrollAnimations);
+        window.addEventListener('load', handleScrollAnimations);
+
+        // WhatsApp Booking Function
+        function redirectToWhatsApp() {
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
+            const duration = document.getElementById('duration').value;
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+            const notes = document.getElementById('notes').value;
+            
+            if (!name || !phone || !service || !duration || !date || !time) {
+                alert('Please fill in all required fields before booking.');
+                return;
+            }
+            
+            const message = `Hello! I would like to book a massage appointment:%0A%0AName: ${name}%0APhone: ${phone}%0AService: ${service}%0ADuration: ${duration}%0ADate: ${date}%0ATime: ${time}%0ASpecial Requests: ${notes || 'None'}`;
+            
+            const whatsappNumber = "233552486518";
+            window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+        }
+
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const navMenu = document.getElementById('navbar-nav');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const navbar = document.querySelector('.navbar');
+                    const navbarHeight = navbar.offsetHeight;
+                    const targetPosition = target.offsetTop - navbarHeight - 20;
+
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+
+                    // Close mobile menu if open
+                    navMenu.classList.remove('active');
+                }
+            });
+        });
+
+        // Initialize animations on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            updateScrollProgress();
+            updateActiveNavLink();
+            handleScrollAnimations();
+        });
+    </script>
+</body>
+</html>

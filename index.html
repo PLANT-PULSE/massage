@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GLORY WELLNESS HEALTH CENTRE</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress-bar"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="images/logo.jpeg" alt="Glory Wellness Logo" class="navbar-logo">
+                GLORY WELLNESS HEALTH CENTRE
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pricing">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#team">Therapists</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#gallery">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#support">Support Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#shop">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item ms-2">
+                        <a class="btn btn-gold" href="#booking">Book Now</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Marquee -->
+    <div class="marquee-container">
+        <div class="marquee-text">
+            <i class="fas fa-star text-gold me-2"></i> Grand Opening Special: 20% Off All Massages This Month! 
+            <i class="fas fa-gift text-gold mx-3"></i> Gift Cards Available - Perfect Present for Loved Ones! 
+            <i class="fas fa-calendar-check text-gold mx-3"></i> Now Accepting Online Bookings - Schedule Your Relaxation Today!
+        </div>
+    </div>
+
+    <!-- Hero Carousel -->
+    <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="2"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://media.gettyimages.com/id/458578007/photo/massage.webp?s=2048x2048&w=gi&k=20&c=WJF77pCcV_XM6nMeqGK6pcT0eWToWraLI4dsAStoPv0=" class="d-block w-100" style="height: 500px; object-fit: cover;" alt="Massage Therapy">
+                <div class="carousel-caption d-none d-md-block">
+                    <h2>Experience Ultimate Relaxation</h2>
+                    <p>Our expert therapists provide personalized massage treatments to rejuvenate your body and mind.</p>
+                    <a href="#booking" class="btn btn-gold">Book Your Session</a>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="images/mas.png" class="d-block w-100" style="height: 500px; object-fit: cover;" alt="Spa Interior">
+                <div class="carousel-caption d-none d-md-block">
+                    <h2>Luxury Wellness Centre</h2>
+                    <p>Immerse yourself in our serene environment designed for complete relaxation and healing.</p>
+                    <a href="#services" class="btn btn-gold">Explore Services</a>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="images/ms.png" class="d-block w-100" style="height: 500px; object-fit: cover;" alt="Massage Therapy">
+                <div class="carousel-caption d-none d-md-block">
+                    <h2>Gift the Joy of Wellness</h2>
+                    <p>Share the gift of relaxation with our specially designed gift cards for your loved ones.</p>
+                    <a href="#gift-cards" class="btn btn-gold">Purchase Gift Card</a>
+                </div>
+                <div class="carousel-caption d-none d-md-block mt-5">
+                    <h3 class="text-warning fst-italic">Illuminating your path to wellness</h3>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <!-- Intro Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="mb-4">Welcome to Glory Wellness Health Centre</h2>
+                    <p class="lead">Where healing hands meet compassionate hearts to restore your balance and vitality.</p>
+                    <p>At Glory Wellness, we believe in the power of touch to transform your well-being. Our team of certified therapists provides personalized treatments tailored to your specific needs, ensuring you leave feeling refreshed, renewed, and restored.</p>
+                    <div class="d-flex mt-4">
+                        <a href="#about" class="btn btn-gold me-3">Learn More</a>
+                        <a href="#contact" class="btn btn-outline-gold">Contact Us</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-5 mt-lg-0">
+                    <img src="images/WhatsApp Image 2025-09-09 at 6.00.28 PM.jpeg" alt="Massage Therapy" class="img-fluid rounded shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+        <!-- About Section -->
+    <section id="about" class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2 class="mb-4">About Glory Wellness</h2>
+                    <p>Founded in 2015, Glory Wellness Health Centre has been a sanctuary of healing and relaxation in the heart of Cape Coast. Our journey began with a simple mission: to provide exceptional massage therapy that addresses both physical tension and mental stress.</p>
+                    <p>Over the years, we've grown into a comprehensive wellness Centre, but our core values remain unchanged. We believe in the healing power of touch, the importance of a holistic approach to wellness, and the transformative impact of self-care.</p>
+                    <div class="mt-4">
+                        <h5>Our Mission</h5>
+                        <p class="fst-italic">"To provide exceptional massage therapy and holistic wellness services, fostering relaxation, rejuvenation, and overall well-being in a serene and supportive environment."</p>
+                    </div>
+                    <div class="mt-4">
+                        <h5>Our Vision</h5>
+                        <p class="fst-italic">"To be the leading massage and wellness clinic in Cape Coast and globally, renowned for our expertise, compassion, and dedication to empowering individuals to achieve optimal health and vitality."</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="row mt-5 mt-lg-0">
+                        <div class="col-6">
+                            <img src="images/WhatsApp Image 2025-09-09 at 6.00.28 PM.jpeg" alt="Spa Interior" class="img-fluid rounded shadow mb-4">
+                        </div>
+                        <div class="col-6">
+                            <img src="images/WhatsApp Image 2025-09-09 at 4.31.58 PM(3).jpeg" alt="Spa Interior" class="img-fluid rounded shadow mb-4">
+                        </div>
+                        <div class="col-12">
+                            <img src="images/massage.png" alt="Treatment Room" class="img-fluid rounded shadow">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section-padding bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="mb-3">Our Services</h2>
+                <p class="lead">Experience a variety of massage therapies designed to meet your wellness needs</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card service-card h-100">
+                        <img src="images/we.jpeg" class="card-img-top" alt="Swedish Massage">
+                        <div class="card-body">
+                            <h5 class="card-title">Swedish Massage</h5>
+                            <p class="card-text">A gentle form of massage that uses long strokes, kneading, and circular movements to help you relax and energize.</p>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Duration: 45/60 minutes</li>
+                                <li class="list-group-item">Benefits: Relaxation, improved circulation</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer bg-white border-0">
+                            <a href="#booking" class="btn btn-gold w-100">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card service-card h-100">
+                        <img src="images/detox.png" class="card-img-top" alt="Delox Products">
+                        <div class="card-body">
+                            <h5 class="card-title">Detox Products</h5>
+                            <p class="card-text">Discover the rejuvenating power of Delox wellness products, crafted to enhance your health and vitality through natural ingredients and innovative formulations.</p>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Duration: Available in various packages</li>
+                                <li class="list-group-item">Benefits: Skin nourishment, relaxation, holistic wellness</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer bg-white border-0">
+                            <a href="#shop" class="btn btn-gold w-100">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="card service-card h-100">
+                        <img src="images/deep.png" class="card-img-top" alt="Deep Tissue Massage">
+                        <div class="card-body">
+                            <h5 class="card-title">Deep Tissue Massage</h5>
+                            <p class="card-text">Targets the deeper layers of muscle and connective tissue to relieve chronic patterns of tension.</p>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Duration: 45/60 minutes</li>
+                                <li class="list-group-item">Benefits: Pain relief, muscle tension release</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer bg-white border-0">
+                            <a href="#booking" class="btn btn-gold w-100">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="card service-card h-100">
+                        <img src="images/hollistic.png" class="card-img-top" alt="Holistic Massage">
+                        <div class="card-body">
+                            <h5 class="card-title">Holistic Massage</h5>
+                            <p class="card-text">Uses heated stones to enhance relaxation and loosen tight muscles for a deeply soothing experience.</p>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Duration: 45/60 minutes</li>
+                                <li class="list-group-item">Benefits: Deep relaxation, muscle tension relief</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer bg-white border-0">
+                            <a href="#booking" class="btn btn-gold w-100">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="card service-card h-100">
+                        <img src="images/couple.png" class="card-img-top" alt="Couples Massage">
+                        <div class="card-body">
+                            <h5 class="card-title">Couples Massage</h5>
+                            <p class="card-text">Enjoy side-by-side massages with your partner in a private room for a shared relaxing experience.</p>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Duration: 90 minutes</li>
+                                <li class="list-group-item">Benefits: Shared experience, relaxation</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer bg-white border-0">
+                            <a href="#booking" class="btn btn-gold w-100">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="card service-card h-100">
+                        <img src="images/pedicure.png" class="card-img-top" alt="Pedicure">
+                        <div class="card-body">
+                            <h5 class="card-title">Pedicure</h5>
+                            <p class="card-text">Pamper your feet with our professional pedicure service including nail care, exfoliation, and moisturizing.</p>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Duration: 60 minutes</li>
+                                <li class="list-group-item">Benefits: Foot care, nail treatment</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer bg-white border-0">
+                            <a href="#booking" class="btn btn-gold w-100">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="card service-card h-100">
+                        <img src="images/manicure.png" class="card-img-top" alt="Manicure">
+                        <div class="card-body">
+                            <h5 class="card-title">Manicure</h5>
+                            <p class="card-text">Treat your hands to our manicure service with nail shaping, cuticle care, and polish application.</p>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Duration: 60/90 minutes</li>
+                                <li class="list-group-item">Benefits: Hand care, nail beauty</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer bg-white border-0">
+                            <a href="#booking" class="btn btn-gold w-100">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card service-card h-100">
+                        <img src="images/reflex.png" class="card-img-top" alt="Reflexology">
+                        <div class="card-body">
+                            <h5 class="card-title">Reflexology</h5>
+                            <p class="card-text">Experience the healing power of reflexology in a focused 30-minute session. This ancient therapy applies pressure to specific points on your feet that correspond to different organs and systems in your body, promoting deep relaxation and holistic healing.</p>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Duration: 30 minutes</li>
+                                <li class="list-group-item">Benefits: Stress relief, improved circulation, holistic healing</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer bg-white border-0">
+                            <a href="#booking" class="btn btn-gold w-100">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="section-padding bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="mb-3">Service Pricing</h2>
+                <p class="lead">Invest in your well-being with our affordable massage therapy options</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="pricing-card p-4 text-center">
+                        <h4>Swedish Massage</h4>
+                        <div class="my-4">
+                            <span class="h2 text-purple">₵450</span>
+                            <span>for 45 min and</span>
+                        </div>
+                        <ul class="list-unstyled">
+                            <li class="mb-2">₵500 for 60 minutes</li>
+                            <li class="mb-2">Relaxing and gentle</li>
+                            <li class="mb-2">Improved circulation</li>
+                            <li class="mb-2">Stress reduction</li>
+                        </ul>
+                        <a href="#booking" class="btn btn-gold mt-3 w-100">Book Now</a>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="pricing-card featured p-4 text-center">
+                        <h4>Deep Tissue Massage</h4>
+                        <div class="my-4">
+                            <span class="h2 text-purple">₵500</span>
+                            <span>for 45 min and</span>
+                        </div>
+                        <ul class="list-unstyled">
+                            <li class="mb-2">₵600 for 60 minutes</li>
+                            <li class="mb-2">Targets deep muscles</li>
+                            <li class="mb-2">Chronic pain relief</li>
+                            <li class="mb-2">Releases muscle tension</li>
+                        </ul>
+                        <a href="#booking" class="btn btn-gold mt-3 w-100">Book Now</a>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="pricing-card p-4 text-center">
+                        <h4>Holistic Massage</h4>
+                        <div class="my-4">
+                            <span class="h2 text-purple">₵450</span>
+                            <span>for 45 min and</span>
+                        </div>
+                        <ul class="list-unstyled">
+                            <li class="mb-2">₵550 for 60 minutes</li>
+                            <li class="mb-2">Deep relaxation</li>
+                            <li class="mb-2">Heated stones therapy</li>
+                            <li class="mb-2">Muscle tension relief</li>
+                        </ul>
+                        <a href="#booking" class="btn btn-gold mt-3 w-100">Book Now</a>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mt-4">
+                    <div class="pricing-card p-4 text-center">
+                        <h4>Reflexology </h4>
+                        <div class="my-4">
+                            <span class="h2 text-purple">₵300</span>
+                            <span>for 30 min and</span>
+                        </div>
+                        <ul class="list-unstyled">
+                            <li class="mb-2">₵350 for 45 minutes</li>
+                            <li class="mb-2">Essential oils included</li>
+                            <li class="mb-2">Mood enhancement</li>
+                            <li class="mb-2">Stress reduction</li>
+                        </ul>
+                        <a href="#booking" class="btn btn-gold mt-3 w-100">Book Now</a>
+                    </div>
+                </div>
+                
+                
+                <div class="col-md-4 mt-4">
+                    <div class="pricing-card p-4 text-center">
+                        <h4>Couples Massage</h4>
+                        <div class="my-4">
+                            <span class="h2 text-purple">₵1100</span>
+                            <span>for 90 min</span>
+                        </div>
+                        <ul class="list-unstyled">
+                            <li class="mb-2">Improved quality sleep</li>
+                            <li class="mb-2">Private room</li>
+                            <li class="mb-2">Side-by-side massage</li>
+                            <li class="mb-2">Shared experience</li>
+                        </ul>
+                        <a href="#booking" class="btn btn-gold mt-3 w-100">Book Now</a>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="pricing-card p-4 text-center">
+                        <h4>Pedicure</h4>
+                        <div class="my-4">
+                            <span class="h2 text-purple">₵270</span>
+                            <span>for 60 min</span>
+                        </div>
+                        <ul class="list-unstyled">
+                            <li class="mb-2">Nail care and shaping</li>
+                            <li class="mb-2">Foot exfoliation</li>
+                            <li class="mb-2">Moisturizing treatment</li>
+                            <li class="mb-2">Relaxing foot soak</li>
+                        </ul>
+                        <a href="#booking" class="btn btn-gold mt-3 w-100">Book Now</a>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="pricing-card p-4 text-center">
+                        <h4>Manicure</h4>
+                        <div class="my-4">
+                            <span class="h2 text-purple">₵270</span>
+                            <span>for 60 min</span>
+                        </div>
+                        <ul class="list-unstyled">
+                            <li class="mb-2">Nail shaping and filing</li>
+                            <li class="mb-2">Cuticle care</li>
+                            <li class="mb-2">Hand massage</li>
+                            <li class="mb-2">Polish application</li>
+                        </ul>
+                        <a href="#booking" class="btn btn-gold mt-3 w-100">Book Now</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5">
+                <div class="alert alert-info">
+                    <h5>Special Packages</h5>
+                    <p class="mb-0">Ask about our monthly membership options and package deals for regular clients!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="section-padding">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="mb-3">Meet Our Therapists</h2>
+                <p class="lead">Our certified massage therapists are dedicated to your wellness journey</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4 text-center">
+                    <img src="images/him.jpeg" alt="Therapist" class="team-img">
+                    <h4 class="mt-3">Mr Moses</h4>
+                    <p class="text-gold">Lead Massage Therapist</p>
+                    <p>Specializing in deep tissue and sports massage with over 10 years of experience. Certified in myofascial release techniques.</p>
+                </div>
+                
+                <div class="col-md-4 text-center">
+                    <img src="images/her.jpeg" alt="Therapist" class="team-img">
+                    <h4 class="mt-3">Catherine</h4>
+                    <p class="text-gold">Aromatherapy Specialist</p>
+                    <p>With 8 years of experience, Kwame combines his knowledge of essential oils with massage for a holistic healing experience.</p>
+                </div>
+                
+                <div class="col-md-4 text-center">
+                    <img src="images/work.jpeg" alt="Therapist" class="team-img">
+                    <h4 class="mt-3">Akyere</h4>
+                    <p class="text-gold">Reflexology Expert</p>
+                    <p>Esi is certified in reflexology and Asian bodywork with 7 years of experience helping clients find balance through foot therapy.</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5">
+                <p>All our therapists are fully certified and participate in ongoing training to stay updated with the latest techniques in massage therapy.</p>
+                <div class="alert alert-light mt-3">
+                    <h6>Gender Preference</h6>
+                    <p class="mb-0">We respect our clients' preferences. You may request a male or female therapist when booking your appointment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="mb-3">Client Testimonials</h2>
+                <p class="lead">Hear what our clients have to say about their experience</p>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Client" class="testimonial-img me-3">
+                            <div>
+                                <h5 class="mb-0">Abena Owusu</h5>
+                                <small class="text-gold">Regular Client</small>
+                            </div>
+                        </div>
+                        <p class="mb-0">"I've been coming to Glory Wellness for over a year now. The deep tissue massage has done wonders for my chronic back pain. The therapists are truly skilled and professional."</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client" class="testimonial-img me-3">
+                            <div>
+                                <h5 class="mb-0">Kofi Ansah</h5>
+                                <small class="text-gold">First-time Visitor</small>
+                            </div>
+                        </div>
+                        <p class="mb-0">"I received a gift certificate for a couples massage and it was incredible! The atmosphere was so relaxing, and the staff made us feel completely comfortable. We'll definitely be back."</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Client" class="testimonial-img me-3">
+                            <div>
+                                <h5 class="mb-0">Adwoa Nyarko</h5>
+                                <small class="text-gold">Corporate Client</small>
+                            </div>
+                        </div>
+                        <p class="mb-0">"As someone who spends long hours at a desk, I frequently experience neck and shoulder tension. The hot stone massage at Glory Wellness has become my monthly treat to unwind and reset."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Us Section -->
+    <section id="support" class="section-padding bg-purple text-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="mb-3">Support Our Mission</h2>
+                <p class="lead">Help us expand our wellness services and reach more people in need</p>
+            </div>
+
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4">
+                    <div class="bg-light text-dark p-4 rounded">
+                        <h4 class="text-purple mb-3">Our Goal: ₵50,000</h4>
+                        <div class="progress mb-3" style="height: 20px;">
+                            <div class="progress-bar bg-gold" role="progressbar" style="width: 65%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">₵32,500 Raised</div>
+                        </div>
+                        <p class="mb-3">Help us fund new equipment and expand our community outreach programs.</p>
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-gold">Donate ₵50</button>
+                            <button class="btn btn-outline-light">Donate ₵100</button>
+                            <button class="btn btn-outline-light">Other Amount</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h4 class="mb-3">How Your Donation Helps</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-3"><i class="fas fa-check-circle text-gold me-2"></i> Purchase advanced massage equipment</li>
+                        <li class="mb-3"><i class="fas fa-check-circle text-gold me-2"></i> Expand our free community wellness programs</li>
+                        <li class="mb-3"><i class="fas fa-check-circle text-gold me-2"></i> Train more therapists in specialized techniques</li>
+                        <li class="mb-3"><i class="fas fa-check-circle text-gold me-2"></i> Improve our facility for better client experience</li>
+                    </ul>
+                    <div class="mt-4">
+                        <h5>Recent Donors</h5>
+                        <div class="d-flex flex-wrap gap-2">
+                            <span class="badge bg-gold text-dark">Anonymous - ₵200</span>
+                            <span class="badge bg-gold text-dark">Kofi A. - ₵100</span>
+                            <span class="badge bg-gold text-dark">Abena O. - ₵50</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="section-padding">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="mb-3">Our Wellness Environment</h2>
+                <p class="lead">Step into our serene space designed for your relaxation and rejuvenation</p>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="gallery-img">
+                        <img src="images/do.jpeg" alt="Hot Stone Massage" class="img-fluid w-100">
+
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="gallery-img">
+                        <img src="images/WhatsApp Image 2025-09-09 at 4.31.57 PM(1).jpeg" alt="Hot Stone Massage" class="img-fluid w-100">
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="gallery-img">
+                        <img src="images/WhatsApp Image 2025-09-09 at 6.00.25 PM.jpeg" alt="Hot Stone Massage" class="img-fluid w-100">
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="gallery-img">
+                        <img src="images/her.jpeg" alt="Couples Massage" class="img-fluid w-100">
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="gallery-img">
+                        <img src="images/WhatsApp Image 2025-09-09 at 4.31.58 PM(2).jpeg" alt="Aromatherapy" class="img-fluid w-100">
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="gallery-img">
+                        <img src="images/WhatsApp Image 2025-09-09 at 4.31.58 PM(3).jpeg" alt="Reflexology" class="img-fluid w-100">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop Section -->
+    <section id="shop" class="section-padding bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="mb-3">Wellness Shop</h2>
+                <p class="lead">Discover premium wellness products to enhance your self-care routine</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 shadow-sm">
+                        <img src="images/deep.png" class="card-img-top" alt="Essential Oils Set" style="height: 200px; object-fit: cover;">
+                        <div class="card-body text-center">
+                            <h6 class="card-title">Essential Oils Set</h6>
+                            <p class="card-text small text-muted">Aromatherapy blend for relaxation</p>
+                            <p class="text-purple fw-bold mb-2">₵150</p>
+                            <button class="btn btn-gold btn-sm w-100">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 shadow-sm">
+                        <img src="images/hollistic.png" class="card-img-top" alt="Massage Oil" style="height: 200px; object-fit: cover;">
+                        <div class="card-body text-center">
+                            <h6 class="card-title">Premium Massage Oil</h6>
+                            <p class="card-text small text-muted">Natural ingredients for smooth glide</p>
+                            <p class="text-purple fw-bold mb-2">₵80</p>
+                            <button class="btn btn-gold btn-sm w-100">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 shadow-sm">
+                        <img src="images/reflex.png" class="card-img-top" alt="Wellness Candles" style="height: 200px; object-fit: cover;">
+                        <div class="card-body text-center">
+                            <h6 class="card-title">Wellness Candles</h6>
+                            <p class="card-text small text-muted">Scented candles for ambiance</p>
+                            <p class="text-purple fw-bold mb-2">₵120</p>
+                            <button class="btn btn-gold btn-sm w-100">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 shadow-sm">
+                        <img src="images/pedicure.png" class="card-img-top" alt="Herbal Tea Set" style="height: 200px; object-fit: cover;">
+                        <div class="card-body text-center">
+                            <h6 class="card-title">Herbal Tea Collection</h6>
+                            <p class="card-text small text-muted">Detox and relaxation teas</p>
+                            <p class="text-purple fw-bold mb-2">₵100</p>
+                            <button class="btn btn-gold btn-sm w-100">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 shadow-sm">
+                        <img src="images/couples.png" class="card-img-top" alt="Crystal Set" style="height: 200px; object-fit: cover;">
+                        <div class="card-body text-center">
+                            <h6 class="card-title">Healing Crystals</h6>
+                            <p class="card-text small text-muted">Energy balancing stones</p>
+                            <p class="text-purple fw-bold mb-2">₵200</p>
+                            <button class="btn btn-gold btn-sm w-100">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 shadow-sm">
+                        <img src="images/work.jpeg" class="card-img-top" alt="Wellness Journal" style="height: 200px; object-fit: cover;">
+                        <div class="card-body text-center">
+                            <h6 class="card-title">Wellness Journal</h6>
+                            <p class="card-text small text-muted">Track your wellness journey</p>
+                            <p class="text-purple fw-bold mb-2">₵60</p>
+                            <button class="btn btn-gold btn-sm w-100">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 shadow-sm">
+                        <img src="images/act.jpeg" class="card-img-top" alt="Meditation Cushion" style="height: 200px; object-fit: cover;">
+                        <div class="card-body text-center">
+                            <h6 class="card-title">Meditation Cushion</h6>
+                            <p class="card-text small text-muted">Comfortable seating for mindfulness</p>
+                            <p class="text-purple fw-bold mb-2">₵180</p>
+                            <button class="btn btn-gold btn-sm w-100">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 shadow-sm">
+                        <img src="images/her.jpeg" class="card-img-top" alt="Gift Set" style="height: 200px; object-fit: cover;">
+                        <div class="card-body text-center">
+                            <h6 class="card-title">Wellness Gift Set</h6>
+                            <p class="card-text small text-muted">Perfect for gifting wellness</p>
+                            <p class="text-purple fw-bold mb-2">₵250</p>
+                            <button class="btn btn-gold btn-sm w-100">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-5">
+                <div class="alert alert-purple">
+                    <h5>Free Shipping on Orders Over ₵300</h5>
+                    <p class="mb-0">Shop now and enjoy complimentary delivery across Ghana!</p>
+                </div>
+            </div>
+        </div>
+
+    <!-- Booking Section -->
+    <section id="booking" class="section-padding bg-purple text-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="mb-3">Book Your Session</h2>
+                <p class="lead">Ready to experience the healing power of massage? Book your appointment today</p>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="booking-form text-dark">
+                        <form id="bookingForm">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="name" class="form-label">Full Name</label>
+                                    <input type="text" class="form-control" id="name" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="phone" class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control" id="phone" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="service" class="form-label">Select Service</label>
+                                    <select class="form-select" id="service" required>
+                                        <option value="">Choose a service...</option>
+                                        <option value="Swedish Massage">Swedish Massage</option>
+                                        <option value="Deep Tissue Massage">Deep Tissue Massage</option>
+                                        <option value="Hot Stone Massage">Hollistic Massage</option>
+                                        <option value="Aromatherapy Massage">Reflexology</option>
+                                        <option value="Reflexology">Couples Massage</option>
+                                        <option value="Couples Massage">Pedicure</option>
+                                        <option value="Couples Massage">Manicure</option>
+                                        <option value="Couples Massage">Detox Products</option>
+
+                                    </select>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="duration" class="form-label">Duration</label>
+                                    <select class="form-select" id="duration" required>
+                                        <option value="">Select duration...</option>
+                                        <option value="30 minutes">30 minutes</option>
+                                        <option value="60 minutes">60 minutes</option>
+                                        <option value="90 minutes">90 minutes</option>
+                                        <option value="120 minutes">120 minutes</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="date" class="form-label">Preferred Date</label>
+                                    <input type="date" class="form-control" id="date" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="time" class="form-label">Preferred Time</label>
+                                    <select class="form-select" id="time" required>
+                                        <option value="">Select time...</option>
+                                        <option value="9:00 AM">9:00 AM</option>
+                                        <option value="10:00 AM">10:00 AM</option>
+                                        <option value="11:00 AM">11:00 AM</option>
+                                        <option value="12:00 PM">12:00 PM</option>
+                                        <option value="1:00 PM">1:00 PM</option>
+                                        <option value="2:00 PM">2:00 PM</option>
+                                        <option value="3:00 PM">3:00 PM</option>
+                                        <option value="4:00 PM">4:00 PM</option>
+                                        <option value="5:00 PM">5:00 PM</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <label for="notes" class="form-label">Special Requests or Notes</label>
+                                    <textarea class="form-control" id="notes" rows="3"></textarea>
+                                </div>
+                                <div class="col-12 text-center">
+                                    <button type="button" class="btn btn-gold btn-lg" onclick="redirectToWhatsApp()">
+                                        <i class="fab fa-whatsapp me-2"></i> Continue Booking on WhatsApp
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <div class="mt-4 text-center">
+                        <p class="text-light">Alternatively, you can call us directly at <a href="tel:+233123456789" class="text-gold">+233 55 248 6518</a> to book your appointment.</p>
+                    </div>
+                    
+                    <div class="mt-5">
+                        <h4 class="text-center mb-3">Business Hours</h4>
+                        <div class="row text-center">
+                            <div class="col-md-3 col-6 mb-3">
+                                <h6>Monday and Tuesdays</h6>
+                                <p class="mb-0">24 hours</p>
+                            </div>
+                            <div class="col-md-3 col-6 mb-3">
+                                <h6>Thursdays - Saturday</h6>
+                                <p class="mb-0">24 hours</p>
+                            </div>
+                            <div class="col-md-3 col-6 mb-3">
+                                <h6>Sunday</h6>
+                                <p class="mb-0">24 hours</p>
+                            </div>
+                            <div class="col-md-3 col-6 mb-3">
+                                <h6>Holidays</h6>
+                                <p class="mb-0">By appointment only</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <h4 class="text-center mb-3">Cancellation Policy</h4>
+                        <p class="text-center">We require at least 24 hours notice for cancellations or rescheduling. Late cancellations may incur a 50% fee. No-shows will be charged the full amount of the scheduled service.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gift Cards Section -->
+    <section id="gift-cards" class="section-padding bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="mb-3">Gift Cards</h2>
+                <p class="lead">Give the gift of relaxation and wellness</p>
+            </div>
+            
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <img src="https://massagecharmlajolla.com/wp-content/uploads/2019/08/massage-charm-gift-card.png" alt="Gift Card" class="img-fluid rounded shadow">
+                </div>
+                <div class="col-md-6 mt-4 mt-md-0">
+                    <h4 class="mb-4">The Perfect Gift for Any Occasion</h4>
+                    <p>Our gift cards are available in any denomination and never expire. They can be used for any of our services and make perfect gifts for:</p>
+                    <ul>
+                        <li>Birthdays</li>
+                        <li>Anniversaries</li>
+                        <li>Holidays</li>
+                        <li>Corporate gifts</li>
+                        <li>Thank you presents</li>
+                    </ul>
+                    <p>To purchase a gift card, visit our Centre or contact us at <a href="tel:+233123456789" class="text-purple">+233 123 456 789</a>.</p>
+                    <a href="#contact" class="btn btn-gold mt-3">Contact Us to Purchase</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="mb-3">Frequently Asked Questions</h2>
+                <p class="lead">Find answers to common questions about our massage services</p>
+            </div>
+            
+            <div class="accordion" id="faqAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                            What should I wear during my massage?
+                        </button>
+                    </h2>
+                    <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            For most massages, you will undress to your level of comfort. During the session, you will be properly draped with a sheet and blanket at all times to keep you warm and comfortable. Only the area being worked on will be exposed.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                            How often should I get a massage?
+                        </button>
+                    </h2>
+                    <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            This depends on your individual needs and goals. For general wellness and stress management, once a month can be beneficial. For chronic issues or specific goals, weekly sessions might be recommended initially. Your therapist can help determine the best frequency for you.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                            Should I avoid eating before my massage?
+                        </button>
+                    </h2>
+                    <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            It's best not to eat a heavy meal right before your massage. A light meal or snack 1-2 hours before your session is ideal. Being too full can cause discomfort when lying on the massage table.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                            Is it normal to feel sore after a massage?
+                        </button>
+                    </h2>
+                    <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Some mild soreness can be normal after a deep tissue or more intensive massage, similar to what you might feel after a workout. This usually dissipates within 24-48 hours. Drinking plenty of water after your massage can help minimize soreness.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                            Can I request a specific therapist?
+                        </button>
+                    </h2>
+                    <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Absolutely! You can request a specific therapist when booking your appointment. We will do our best to accommodate your preference based on availability.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="mb-3">Contact Us</h2>
+                <p class="lead">Get in touch with us for any questions or to book your appointment</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="card-title mb-4">Visit Our Centre</h4>
+                            <div class="d-flex mb-3">
+                                <div class="me-3">
+                                    <i class="fas fa-map-marker-alt text-purple fa-2x"></i>
+                                </div>
+                                <div>
+                                    <h5>Address</h5>
+                                    <p>Cape Coast, Central Region, Ghana</p>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex mb-3">
+                                <div class="me-3">
+                                    <i class="fas fa-phone text-purple fa-2x"></i>
+                                </div>
+                                <div>
+                                    <h5>Phone</h5>
+                                    <p>+233 55 248 6518</p>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex mb-3">
+                                <div class="me-3">
+                                    <i class="fas fa-envelope text-purple fa-2x"></i>
+                                </div>
+                                <div>
+                                    <h5>Email</h5>
+                                    <p>glorywellnesshealthcentre@gmail.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex mb-3">
+                                <div class="me-3">
+                                    <i class="fas fa-clock text-purple fa-2x"></i>
+                                </div>
+                                <div>
+                                    <h5>Business Hours</h5>
+                                    <p>This place stays open 24 hours every day except Wednesday.<br>
+                                
+                                </div>
+                            </div>
+                            
+                            <div class="mt-4">
+                                <h5 class="mb-3">Follow Us</h5>
+                                <div class="d-flex">
+                                    <a href="#" class="social-icon me-2">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                    <a href="#" class="social-icon me-2">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                    <a href="https://wa.me/233552486518" target="_blank" class="social-icon me-2" title="Chat on WhatsApp">
+                                        <i class="fab fa-whatsapp"></i>
+                                    </a>
+                                    <a href="#" class="social-icon">
+                                        <i class="fab fa-tiktok"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="card-title mb-4">Send Us a Message</h4>
+                           <form action="https://glorywellnesshealthcentre.netlify.app/" method="POST">
+    <div class="mb-3">
+        <label for="contactName" class="form-label">Your Name</label>
+        <input type="text" class="form-control" id="contactName" name="name" required>
+    </div>
+    <div class="mb-3">
+        <label for="contactEmail" class="form-label">Email Address</label>
+        <input type="email" class="form-control" id="contactEmail" name="email" required>
+    </div>
+    <div class="mb-3">
+        <label for="contactPhone" class="form-label">Phone Number</label>
+        <input type="tel" class="form-control" id="contactPhone" name="phone">
+    </div>
+    <div class="mb-3">
+        <label for="contactMessage" class="form-label">Message</label>
+        <textarea class="form-control" id="contactMessage" name="message" rows="4" required></textarea>
+    </div>
+
+    <!-- Optional hidden fields -->
+    <input type="hidden" name="_next" value="https://yourdomain.com/thank-you.html">
+    <input type="hidden" name="_captcha" value="false">
+
+    <button type="submit" class="btn btn-gold">Send Message</button>
+</form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h4 class="text-gold">GLORY WELLNESS HEALTH CENTRE</h4>
+                    <p>Providing exceptional massage therapy and holistic wellness services in a serene and supportive environment.</p>
+                    <div class="d-flex mt-3">
+                        <a href="#" class="social-icon me-2">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon me-2">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                                    <a href="https://wa.me/233552486518" target="_blank" class="social-icon me-2" title="Chat on WhatsApp">
+                                        <i class="fab fa-whatsapp"></i>
+                                    </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-gold">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Home</a></li>
+                        <li class="mb-2"><a href="#about" class="text-white text-decoration-none">About</a></li>
+                        <li class="mb-2"><a href="#services" class="text-white text-decoration-none">Services</a></li>
+                        <li class="mb-2"><a href="#pricing" class="text-white text-decoration-none">Pricing</a></li>
+                        <li class="mb-2"><a href="#contact" class="text-white text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-gold">Services</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#services" class="text-white text-decoration-none">Swedish Massage</a></li>
+                        <li class="mb-2"><a href="#services" class="text-white text-decoration-none">Deep Tissue Massage</a></li>
+                        <li class="mb-2"><a href="#services" class="text-white text-decoration-none">Hollistic Massage</a></li>
+                        <li class="mb-2"><a href="#services" class="text-white text-decoration-none">Couples Massage</a></li>
+                        <li class="mb-2"><a href="#services" class="text-white text-decoration-none">Reflexology</a></li>
+                        <li class="mb-2"><a href="#services" class="text-white text-decoration-none">Pedicure </a></li>
+                        <li class="mb-2"><a href="#services" class="text-white text-decoration-none">Manicure</a></li>
+                        <li class="mb-2"><a href="#services" class="text-white text-decoration-none">Detox Products</a></li>
+
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3">
+                    <h5 class="text-gold">Contact Info</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2 text-gold"></i>Cape Coast Castle,Cape Coast ,Central Region ,GHANA</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2 text-gold"></i> +233 55 248 6518</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2 text-gold"></i> glorywellnesshealthcentre@gmail.om</li>
+                        <li class="mb-2"><i class="fas fa-clock me-2 text-gold"></i> This place stays open 24 hours every day except Wednesday.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr class="my-4 bg-light">
+            
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2023 Glory Wellness Health Centre. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0">Designed with <i class="fas fa-heart text-danger"></i> for your wellness</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
