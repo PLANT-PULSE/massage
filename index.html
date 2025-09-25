@@ -876,7 +876,7 @@
                         <li>Corporate gifts</li>
                         <li>Thank you presents</li>
                     </ul>
-                    <p>To purchase a gift card, visit our Centre or contact us at <a href="tel:+233123456789" class="text-purple">+233 123 456 789</a>.</p>
+                    <p>To purchase a gift card, visit our Centre or contact us at <a href="tel:+233123456789" class="text-purple">+233 55 248 6518</a>.</p>
                     <a href="#contact" class="btn btn-gold mt-3">Contact Us to Purchase</a>
                 </div>
             </div>
@@ -1039,30 +1039,34 @@
                     <div class="card h-100">
                         <div class="card-body">
                             <h4 class="card-title mb-4">Send Us a Message</h4>
-                           <form action="https://glorywellnesshealthcentre.netlify.app/" method="POST">
-    <div class="mb-3">
-        <label for="contactName" class="form-label">Your Name</label>
-        <input type="text" class="form-control" id="contactName" name="name" required>
-    </div>
-    <div class="mb-3">
-        <label for="contactEmail" class="form-label">Email Address</label>
-        <input type="email" class="form-control" id="contactEmail" name="email" required>
-    </div>
-    <div class="mb-3">
-        <label for="contactPhone" class="form-label">Phone Number</label>
-        <input type="tel" class="form-control" id="contactPhone" name="phone">
-    </div>
-    <div class="mb-3">
-        <label for="contactMessage" class="form-label">Message</label>
-        <textarea class="form-control" id="contactMessage" name="message" rows="4" required></textarea>
-    </div>
+<form name="contact" method="POST" data-netlify="true">
+  <!-- ✅ Required hidden field so Netlify knows which form it is -->
+  <input type="hidden" name="form-name" value="contact">
 
-    <!-- Optional hidden fields -->
-    <input type="hidden" name="_next" value="https://yourdomain.com/thank-you.html">
-    <input type="hidden" name="_captcha" value="false">
+  <div class="mb-3">
+      <label for="contactName" class="form-label">Your Name</label>
+      <input type="text" class="form-control" id="contactName" name="name" required>
+  </div>
 
-    <button type="submit" class="btn btn-gold">Send Message</button>
+  <div class="mb-3">
+      <label for="contactEmail" class="form-label">Email Address</label>
+      <input type="email" class="form-control" id="contactEmail" name="email" required>
+  </div>
+
+  <div class="mb-3">
+      <label for="contactPhone" class="form-label">Phone Number</label>
+      <input type="tel" class="form-control" id="contactPhone" name="phone">
+  </div>
+
+  <div class="mb-3">
+      <label for="contactMessage" class="form-label">Message</label>
+      <textarea class="form-control" id="contactMessage" name="message" rows="4" required></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-gold">Send Message</button>
 </form>
+
+
 
                         </div>
                     </div>
@@ -1079,7 +1083,7 @@
                     <h4 class="text-gold">GLORY WELLNESS HEALTH CENTRE</h4>
                     <p>Providing exceptional massage therapy and holistic wellness services in a serene and supportive environment.</p>
                     <div class="d-flex mt-3">
-                        <a href="https://web.facebook.com/share/p/1EobRoPyHN/" class="social-icon me-2">
+                        <a href="https://web.facebook.com/share/p/1EobRoPyHN/s" class="social-icon me-2">
                             <i class="fab fa-facebook-f"></i>
                         </a>
                         <a href="#" class="social-icon me-2">
